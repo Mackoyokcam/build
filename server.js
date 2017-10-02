@@ -1,53 +1,51 @@
 'use strict';
 
+const cors = require('cors');
+const morgan = require('morgan');
 const express = require('express');
 const mongoose = require('mongoose');
 
-// enable promises
+// Enable promises
 mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 
-// express is a factory function
 const app = express();
-let isOn = false;
-let http = null;
+let server = null;
+const production = process.env.NODE_ENV === 'production';
 
-// register middleware
+// Register middleware
+app.use(cors({origin: process.env.CORS_ORIGIN}));
+app.use(morgan(production ? 'combined' : 'dev'));
 
-// register routes
+// Register routes
 
-// register 404 route
-app.all('*', (req, res) => {
-  res.sendStatus(404);
-});
+// Register 404 route
+app.all('*', (req, res) => res.sendStatus(404));
 
-// register error handler
+// Register error handler
 app.use(require('./error-middleware.js'));
 
 module.exports = {
   start: () => {
     return new Promise((resolve, reject) => {
-      if(isOn)
+      if(server)
         return reject(new Error('__SERVER_ERROR__ server is already on'));
-      http = app.listen(process.env.PORT, () => {
-        isOn = true;
+      server = app.listen(process.env.PORT, () => {
         console.log('__SERVER_ON__', process.env.PORT);
-        resolve();
+        return resolve();
       });
-    });
+    })
+      .then(() => mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true}));
   },
   stop: () => {
     return new Promise((resolve, reject) => {
-      if(!isOn)
+      if(!server)
         return reject(new Error('__SERVER_ERROR__ server is already off'));
-      if(!http)
-        return reject(new Error('__SERVER_ERROR__ there is no server to close'));
-      http.close(() => {
-        isOn = false;
-        http = null;
+      server.close(() => {
+        server = null;
         console.log('__SERVER_OFF__');
-        resolve();
+        return resolve();
       });
-    });
+    })
+      .then(() => mongoose.disconnect());
   },
 };
