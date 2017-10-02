@@ -24,7 +24,7 @@ accountSchema.methods.passwordVerify = function(password) {
     });
 };
 
-accountSchema.methods.createToken = function() {
+accountSchema.methods.tokenCreate = function() {
   this.tokenSeed = crypto.randomBytes(64).toString('hex');
   this.save()
     .then(account => {
