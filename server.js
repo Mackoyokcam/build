@@ -4,6 +4,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const express = require('express');
 const mongoose = require('mongoose');
+const jsonParser = require('body-parser').json();
+
 
 // Enable promises
 mongoose.Promise = Promise;
@@ -13,6 +15,7 @@ let server = null;
 const production = process.env.NODE_ENV === 'production';
 
 // Register middleware
+app.use(jsonParser);
 app.use(cors({origin: process.env.CORS_ORIGIN}));
 app.use(morgan(production ? 'combined' : 'dev'));
 
