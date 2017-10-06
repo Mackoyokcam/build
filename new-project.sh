@@ -14,8 +14,11 @@ curl -o .gitignore https://www.gitignore.io/api/osx%2Cnode%2Clinux%2Cwindows
 curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/index.js
 curl -o lib/error-middleware.js https://raw.githubusercontent.com/Mackoyokcam/build/master/error-middleware.js
 curl -o lib/server.js https://raw.githubusercontent.com/Mackoyokcam/build/master/server.js
-curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/package.json
+# curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/package.json
 curl -o model/account.js https://raw.githubusercontent.com/Mackoyokcam/build/master/account.js
+curl -o lib/basic-auth-middleware.js https://raw.githubusercontent.com/Mackoyokcam/build/master/basic-auth-middleware.js
+curl -o lib/bearer-auth-middleware.js https://raw.githubusercontent.com/Mackoyokcam/build/master/bearer-auth-middleware.js
+curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/.travis.yml
 echo "db" >> .gitignore
 echo "temp" >> .gitignore
 echo ".env" >> .gitignore
