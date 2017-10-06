@@ -19,6 +19,8 @@ curl -o model/account.js https://raw.githubusercontent.com/Mackoyokcam/build/mas
 curl -o lib/basic-auth-middleware.js https://raw.githubusercontent.com/Mackoyokcam/build/master/basic-auth-middleware.js
 curl -o lib/bearer-auth-middleware.js https://raw.githubusercontent.com/Mackoyokcam/build/master/bearer-auth-middleware.js
 curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/.travis.yml
+curl -o lib/s3.js https://raw.githubusercontent.com/Mackoyokcam/build/master/s3.js
+curl -o __test__/lib/setup.js https://raw.githubusercontent.com/Mackoyokcam/build/master/setup.js
 echo "db" >> .gitignore
 echo "temp" >> .gitignore
 echo ".env" >> .gitignore
