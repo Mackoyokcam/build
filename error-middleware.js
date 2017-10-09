@@ -14,7 +14,6 @@ module.exports = (err, req, res, next) => {
   if(message.includes('validation failed'))
     return res.sendStatus(400);
 
-  // if duplacte key respond with 409
   if(message.includes('duplicate key'))
     return res.sendStatus(409);
 
