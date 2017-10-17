@@ -10,11 +10,18 @@
     "err": true,
     "req": true,
     "res": true,
-    "next": true
+    "next": true,
+    "react": true
   },
+  "plugins": [
+    "react"
+  ],
   "extends": "eslint:recommended",
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     "no-console": "off",
