@@ -8,4 +8,5 @@ curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/webpack.confi
 curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/.babelrc
 # curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/.travis.yml
 npm init -y
-npm i -S multer body-parser cors morgan dotenv express mongoose bcrypt http-errors jsonwebtoken aws-sdk fs-extra
+npm i -S babel-core babel-loader babel-plugin-transform-object-rest-spread babel-preset-env babel-preset-react css-loader extract-text-webpack-plugin \
+html-webpack-plugin node-sass react react-dom resolve-url-loader sass-loader webpack webpack-dev-server
