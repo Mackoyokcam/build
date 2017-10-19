@@ -17,5 +17,8 @@
   },
   "keywords": [],
   "author": "Mark Hangarter",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^4.9.0"
+  }
 }
