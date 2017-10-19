@@ -11,3 +11,4 @@ echo build >> .gitignore
 npm init -y
 npm i -S babel-core babel-loader babel-plugin-transform-object-rest-spread babel-preset-env babel-preset-react css-loader extract-text-webpack-plugin \
 html-webpack-plugin node-sass react react-router-dom react-dom resolve-url-loader sass-loader webpack webpack-dev-server superagent eslint eslint-plugin-react
+npm i -D jest
