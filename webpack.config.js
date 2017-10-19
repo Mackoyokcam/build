@@ -14,7 +14,9 @@ module.exports = {
     filename: 'bundle.[hash].js',
   },
   plugins: [
-    new HTMLPlugin(),
+    new HTMLPlugin({
+      title: '',
+    }),
     new ExtractPlugin('bundle.[hash].css'),
   ],
   module: {
