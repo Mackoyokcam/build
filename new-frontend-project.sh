@@ -1,11 +1,12 @@
 #!/bin/bash
 mkdir -p src src/style src/component src/component/app
-touch README.md src/main.js src/style/main.scss
+touch README.md src/style/main.scss src/component/app/index.js
 curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/.eslintignore
 curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/.eslintrc.json
 curl -o .gitignore https://www.gitignore.io/api/osx%2Cnode%2Clinux%2Cwindows
 curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/webpack.config.js
 curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/.babelrc
+curl -o src/main.js https://raw.githubusercontent.com/Mackoyokcam/build/master/main.js
 # curl -O https://raw.githubusercontent.com/Mackoyokcam/build/master/.travis.yml\
 echo build >> .gitignore
 npm init -y
